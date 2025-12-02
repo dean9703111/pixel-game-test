@@ -26,6 +26,12 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          VITE_GOOGLE_SHEET_ID: ${{ secrets.VITE_GOOGLE_SHEET_ID }}
+          VITE_GOOGLE_SHEET_QUESTION_URL: ${{ secrets.VITE_GOOGLE_SHEET_QUESTION_URL }}
+          VITE_GOOGLE_APP_SCRIPT_URL: ${{ secrets.VITE_GOOGLE_APP_SCRIPT_URL }}
+          VITE_PASS_THRESHOLD: ${{ vars.VITE_PASS_THRESHOLD || 7 }}
+          VITE_QUESTION_COUNT: ${{ vars.VITE_QUESTION_COUNT || 10 }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
